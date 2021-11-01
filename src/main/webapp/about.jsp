@@ -1,7 +1,7 @@
 <%-- 
     Document   : about
     Created on : Oct 25, 2021, 11:45:41 AM
-    Author     : VivoBook
+    Author     : Andra Frunza
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
