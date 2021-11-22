@@ -18,14 +18,14 @@ import javax.persistence.Table;
  * @author Andra Frunza
  */
 @Entity
-@Table(name="USERS")
+@Table(name = "USERS")
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    
+
     private String username;
     private String email;
     private String password;
@@ -72,8 +72,6 @@ public class User implements Serializable {
     public void setCars(Collection<Car> cars) {
         this.cars = cars;
     }
-    
-    
 
     public Integer getId() {
         return id;
@@ -107,5 +105,5 @@ public class User implements Serializable {
     public String toString() {
         return "com.park.parkinglot.entity.User[ id=" + id + " ]";
     }
-    
+
 }

@@ -23,38 +23,33 @@ import javax.persistence.Query;
 public class CarBean {
 
     private static final Logger LOG = Logger.getLogger(CarBean.class.getName());
-    
+
     @PersistenceContext
     private EntityManager em;
-    
+
     public List<CarDetails> getAllCars() {
-    LOG.info("getAllCars");
-    try {
-    Query query = em.createQuery("SELECT c FROM Car c");
-    List<Car> cars = (List<Car>) query.getResultList();
-    return copyCarsToDetails(cars);
-   
-   } catch(Exception ex){
-       throw new EJBException(ex);
-   }
+        LOG.info("getAllCars");
+        try {
+            Query query = em.createQuery("SELECT c FROM Car c");
+            List<Car> cars = (List<Car>) query.getResultList();
+            return copyCarsToDetails(cars);
+
+        } catch (Exception ex) {
+            throw new EJBException(ex);
+        }
     }
-    
-    Query query = em.createQuery("SELECT c FROM Car c");
-    List<Car> cars = (List<Car>) query.getResultList();
-    
-    private List<CarDetails> copyCarsToDetails(List<Car> cars){
+
+    private List<CarDetails> copyCarsToDetails(List<Car> cars) {
         List<CarDetails> detailsList = new ArrayList<>();
-        for(Car car : cars){
-            CarDetails carDetails = new CarDetails(car.getId());
-            car.getLicensePlate();
-            car.getParkingSpot();
-            car.getUser().getUsername();
+        for (Car car : cars) {
+            CarDetails carDetails = new CarDetails(car.getId(),
+                    car.getLicensePlate(),
+                    car.getParkingSpot(),
+                    car.getUser().getUsername());
             detailsList.add(carDetails);
-            
+
         }
         return detailsList;
     }
 
-    
-    
 }

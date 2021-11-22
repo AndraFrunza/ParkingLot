@@ -19,19 +19,19 @@ import javax.persistence.Table;
  * @author Andra Frunza
  */
 @Entity
-@Table(name="CARS")
+@Table(name = "CARS")
 public class Car implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    
+
     private String licensePlate;
     private String parkingSpot;
-    
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="USER_KEY")
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "USER_KEY")
     private User user;
 
     public String getLicensePlate() {
@@ -90,5 +90,5 @@ public class Car implements Serializable {
     public String toString() {
         return "com.park.parkinglot.entity.Car[ id=" + id + " ]";
     }
-    
+
 }

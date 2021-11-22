@@ -8,8 +8,8 @@ package com.park.parkinglot.common;
  *
  * @author Andra Frunza
  */
-public class UserDetails implements java.io.Serializable{
-    
+public class UserDetails implements java.io.Serializable {
+
     private Integer id;
     private String username;
     private String email;
@@ -22,14 +22,22 @@ public class UserDetails implements java.io.Serializable{
         this.position = position;
     }
 
-    public UserDetails(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    public Integer getId(){
+    public Integer getId() {
         return id;
     }
 
+    public String getUsername() {
+        return username;
+    }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPosition() {
+        return position;
+    }
     
+    
+
 }

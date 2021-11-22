@@ -9,21 +9,17 @@ package com.park.parkinglot.common;
  * @author Andra Frunza
  */
 public class CarDetails implements java.io.Serializable {
-    
-private Integer id;
-private String licensePlate;
-private String parkingSpot;
-private String username;
+
+    private Integer id;
+    private String licensePlate;
+    private String parkingSpot;
+    private String username;
 
     public CarDetails(Integer id, String licensePlate, String parkingSpot, String username) {
         this.id = id;
         this.licensePlate = licensePlate;
         this.parkingSpot = parkingSpot;
         this.username = username;
-    }
-
-    public CarDetails(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public Integer getId() {
@@ -42,6 +38,4 @@ private String username;
         return username;
     }
 
-
-    
 }
