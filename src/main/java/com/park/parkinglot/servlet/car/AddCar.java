@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package com.park.parkinglot.servlet;
+package com.park.parkinglot.servlet.car;
 
 import com.park.parkinglot.common.UserDetails;
 import com.park.parkinglot.ejb.CarBean;
@@ -12,6 +12,8 @@ import java.io.PrintWriter;
 import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.HttpConstraint;
+import javax.servlet.annotation.ServletSecurity;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,8 +21,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author VivoBook
+ * @author Andra Frunza
  */
+@ServletSecurity(value = @HttpConstraint(rolesAllowed = {"AdminRole"}))
 @WebServlet(name = "AddCar", urlPatterns = {"/AddCar"})
 public class AddCar extends HttpServlet {
 
@@ -88,7 +91,7 @@ public class AddCar extends HttpServlet {
         String licensePlate = request.getParameter("license_plate");
         String parkingSpot = request.getParameter("parking_spot");
         int ownerId = Integer.parseInt(request.getParameter("owner_id"));
-        
+
         carBean.createCar(licensePlate, parkingSpot, ownerId);
 
         response.sendRedirect(request.getContextPath() + "/Cars");
@@ -103,7 +106,7 @@ public class AddCar extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+        return "AddCar v1.0";
+    }
 
 }
